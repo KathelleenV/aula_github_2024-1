@@ -28,5 +28,8 @@ public class Conta {
 	}
 	
     public void debito(double valor){
+		if(saldo >= valor){
+			saldo = saldo - valor;
+		}
 	}
 }
