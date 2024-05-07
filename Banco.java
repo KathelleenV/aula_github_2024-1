@@ -23,6 +23,8 @@ public class Banco {
 	}
 
 	public void deposito(int numConta, double valor){
+		Conta procurarConta = pesquisar(numConta);
+		procurarConta.credito(valor);
 	}
 	
 	public void saque(int numConta, double valor){
