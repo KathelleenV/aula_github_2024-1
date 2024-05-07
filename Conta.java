@@ -24,10 +24,9 @@ public class Conta {
 	}
 
 	public void credito(double valor){
-		
+		saldo = saldo + valor;
 	}
 	
     public void debito(double valor){
-		
 	}
 }
