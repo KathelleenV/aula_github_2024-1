@@ -33,6 +33,8 @@ public class Banco {
 	}
 	
 	public double saldo(int numConta){
+		Conta procurarConta = pesquisar(numConta);
+		return procurarConta.getSaldo();
 	}
 	
 	public void transferencia(int numConta1, int numConta2, double valor){	
