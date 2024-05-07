@@ -37,6 +37,11 @@ public class Banco {
 		return procurarConta.getSaldo();
 	}
 	
-	public void transferencia(int numConta1, int numConta2, double valor){	
+	public void transferencia(int numConta1, int numConta2, double valor){
+		Conta procurarConta1, procurarConta2;
+		procurarConta1 = pesquisar(numConta1);
+		procurarConta2 = pesquisar(numConta2);
+		procurarConta1.debito(valor);
+		procurarConta2.credito(valor);
 	}
 }
