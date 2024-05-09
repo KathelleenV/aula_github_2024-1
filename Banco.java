@@ -28,7 +28,7 @@ public class Banco {
 		procurarConta.credito(valor);
 	}
 	
-	public void saque(int numConta, double valor) throws ContaInexistente {
+	public void saque(int numConta, double valor) throws ContaInexistente, SaldoInsuficiente{
 		Conta procurarConta = pesquisar(numConta);
 		procurarConta.debito(valor);
 	}
@@ -38,7 +38,7 @@ public class Banco {
 		return procurarConta.getSaldo();
 	}
 	
-	public void transferencia(int numConta1, int numConta2, double valor) throws ContaInexistente{
+	public void transferencia(int numConta1, int numConta2, double valor) throws ContaInexistente, SaldoInsuficiente{
 		Conta procurarConta1, procurarConta2;
 		procurarConta1 = pesquisar(numConta1);
 		procurarConta2 = pesquisar(numConta2);
