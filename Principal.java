@@ -9,7 +9,7 @@ public class Principal {
 		boolean menu = true;
 		int cpf, numConta = 1, conta, conta2, opcao_menu;
         double valor, saldo;
-		String nome;
+		String nome, extrato;
 		Banco b = new Banco();
 
 		while(menu == true){
@@ -21,6 +21,7 @@ public class Principal {
 							 + "| 3 - Realizar saque                |\r\n"
                              + "| 4 - Realizar transferencia        |\r\n"
                              + "| 5 - Consultar saldo               |\r\n"
+                             + "| 6 - Extrato da conta              |\r\n"
 							 + "| 0 - Sair                          |\r\n"
 							 + "|-----------------------------------|\r\n");
 			System.out.print("Digite uma opcao: ");
@@ -82,6 +83,16 @@ public class Principal {
                     try{
                         saldo = b.saldo(conta);
                         System.out.println("\nSaldo atual eh R$"+ saldo +"!");
+                    }catch(Exception e){
+                        System.out.println(e.getMessage());
+                    }
+					break;
+                case 6:
+                    System.out.print("\nDigite o numero da conta para solicitar extrato: ");
+                    conta = leitor.nextInt();
+                    try{
+                        extrato = b.gerarExtrato(conta);
+                        System.out.println(extrato);
                     }catch(Exception e){
                         System.out.println(e.getMessage());
                     }
