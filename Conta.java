@@ -27,9 +27,11 @@ public class Conta {
 		saldo = saldo + valor;
 	}
 	
-    public void debito(double valor){
+    public void debito(double valor) throws SaldoInsuficiente{
 		if(saldo >= valor){
 			saldo = saldo - valor;
+		}else{
+			throw new SaldoInsuficiente(getNumero(), getSaldo());
 		}
 	}
 }

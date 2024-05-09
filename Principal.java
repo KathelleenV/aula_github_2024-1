@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Principal {
 
-	public static void main(String[] args){
+	public static void main(String[] args) throws ContaInexistente, SaldoInsuficiente {
 		Scanner leitor = new Scanner(System.in);
 		boolean menu = true;
 		int cpf, numConta = 1, conta, conta2, opcao_menu;
@@ -43,12 +43,24 @@ public class Principal {
                     conta = leitor.nextInt();
                     System.out.print("\nDigite o valor: ");
 					valor = leitor.nextInt();
+                    try{
+                        b.deposito(conta, valor);
+                        System.out.println("\nDeposito realizado, com sucesso!");
+                    }catch(Exception e){
+                        System.out.println(e.getMessage());
+                    }
 					break;
 				case 3:
 					System.out.print("\nDigite o numero da conta: ");
                     conta = leitor.nextInt();
                     System.out.print("\nDigite o valor: ");
 					valor = leitor.nextInt();
+                    try{
+                        b.saque(conta, valor);
+                        System.out.println("\nSaque realizado, com sucesso!");
+                    }catch(Exception e){
+                        System.out.println(e.getMessage());
+                    }
 					break;
 				case 4:
 					System.out.print("\nDigite o numero da conta atual: ");
@@ -57,10 +69,22 @@ public class Principal {
                     conta2 = leitor.nextInt();
                     System.out.print("\nDigite o valor: ");
 					valor = leitor.nextInt();
+                    try{
+                        b.transferencia(conta, conta2, valor);
+                        System.out.println("\nTransferencia realizada, com sucesso!");
+                    }catch(Exception e){
+                        System.out.println(e.getMessage());
+                    }
 					break;
 				case 5:
                     System.out.print("\nDigite o numero da conta: ");
                     conta = leitor.nextInt();
+                    try{
+                        saldo = b.saldo(conta);
+                        System.out.println("\nSaldo atual eh R$"+ saldo +"!");
+                    }catch(Exception e){
+                        System.out.println(e.getMessage());
+                    }
 					break;
                 case 0:
                     System.out.println("\nAplicacao Finalizada!\n");
