@@ -22,6 +22,7 @@ public class Principal {
                              + "| 4 - Realizar transferencia        |\r\n"
                              + "| 5 - Consultar saldo               |\r\n"
                              + "| 6 - Extrato da conta              |\r\n"
+                             + "| 7 - Excluir conta                 |\r\n"
 							 + "| 0 - Sair                          |\r\n"
 							 + "|-----------------------------------|\r\n");
 			System.out.print("Digite uma opcao: ");
@@ -93,6 +94,16 @@ public class Principal {
                     try{
                         extrato = b.gerarExtrato(conta);
                         System.out.println(extrato);
+                    }catch(Exception e){
+                        System.out.println(e.getMessage());
+                    }
+					break;
+                case 7:
+                    System.out.print("\nDigite o numero da conta para exclusao: ");
+                    conta = leitor.nextInt();
+                    try{
+                        b.excluirConta(conta);
+                        System.out.println("\nConta excluida com sucesso!");
                     }catch(Exception e){
                         System.out.println(e.getMessage());
                     }

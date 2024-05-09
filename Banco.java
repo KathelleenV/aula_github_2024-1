@@ -50,4 +50,9 @@ public class Banco {
 		Conta procurarConta = pesquisar(numConta);
 		return procurarConta.getExtrato();
 	}
+
+	public void excluirConta(int numConta) throws ContaInexistente{
+		Conta procurarConta = pesquisar(numConta);
+		arrayDeContas.remove(procurarConta);
+	}
 }
